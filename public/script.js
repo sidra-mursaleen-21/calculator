@@ -1,6 +1,6 @@
 function getValue(x) {
   var input = document.getElementById("input");
-  input.value += x; 
+  input.value += x;
 }
 
 function clearAll() {
@@ -29,3 +29,15 @@ function percent() {
   input.value /= 100;
 }
 
+function changeTheme() {
+  var main = document.getElementsByClassName("container");
+  main = document.styleSheets[0].cssRules[0].style;
+  main.setProperty("background-color", "pink");
+  main.setProperty(
+    "box-shadow",
+    "-8px -8px 15px rgba(255, 255, 255, 0.1),5px 5px 15px rgba(0, 0, 0, 0.2)"
+  );
+  var input = document.getElementById("input");
+  input.style.backgroundColor = "pink";
+  input.style.color = "black";
+}

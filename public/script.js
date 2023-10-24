@@ -47,6 +47,7 @@ function equal() {
 
 function percent() {
   input.value /= 100;
+  check();
 }
 
 function check(){

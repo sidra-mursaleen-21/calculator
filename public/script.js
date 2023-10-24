@@ -38,6 +38,7 @@ function deleteEach() {
 
 function squareNumber() {
   input.value *= input.value;
+  check();
 }
 
 function equal() {
@@ -46,6 +47,13 @@ function equal() {
 
 function percent() {
   input.value /= 100;
+}
+
+function check(){
+  if(input.value === "NaN"){
+    input.value = "Syntax Error";
+    operation = [];
+  }
 }
 
 function changeTheme() {

@@ -1,43 +1,64 @@
+var input = document.getElementById("input");
+
+var operation = [];
+
 function getValue(x) {
-  var input = document.getElementById("input");
-  input.value += x;
+  operation.push(x);
+  var operator;
+  for (var i = 0; i < operation.length; i++) {
+    if (
+      operation[i] === "+" ||
+      operation[i] === "-" ||
+      operation[i] === "*" ||
+      operation[i] === "/"
+    ) {
+      operator = i;
+      if (
+        operation.at(operator + 1) === "+" ||
+        operation.at(operator + 1) === "-" ||
+        operation.at(operator + 1) === "*" ||
+        operation.at(operator + 1) === "/"
+      ) {
+        operation.splice(operator, 1);
+      }
+    }
+  }
+  input.value = operation.join("");
 }
 
-function clearAll() {
-  var input = document.getElementById("input");
+function clearAll() {  
+  operation = [];
   input.value = "";
 }
 
 function deleteEach() {
-  var input = document.getElementById("input");
-  input.value = input.value.slice(0, -1);
+  operation.pop();
+  input.value = operation.join("");
 }
 
 function squareNumber() {
-  var input = document.getElementById("input");
   input.value *= input.value;
 }
 
 function equal() {
-  var input = document.getElementById("input");
-  console.log(input.value);
   input.value = eval(input.value);
 }
 
 function percent() {
-  var input = document.getElementById("input");
   input.value /= 100;
 }
 
 function changeTheme() {
-  var main = document.getElementsByClassName("container");
-  main = document.styleSheets[0].cssRules[0].style;
-  main.setProperty("background-color", "pink");
-  main.setProperty(
-    "box-shadow",
-    "-8px -8px 15px rgba(255, 255, 255, 0.1),5px 5px 15px rgba(0, 0, 0, 0.2)"
-  );
-  var input = document.getElementById("input");
-  input.style.backgroundColor = "pink";
-  input.style.color = "black";
+  var button = document.getElementById("button");
+  if (input.style.backgroundColor === "pink") {
+    button.parentNode.setAttribute("class", "container");
+    button.style.backgroundColor = "pink";
+    input.style.backgroundColor = "#576579";
+    input.style.color = "white";
+  } else {
+    button.parentNode.setAttribute("class", "changeContainer");
+    input.style.backgroundColor = "pink";
+    input.style.color = "black";
+    button.style.backgroundColor = "#576579";
+  }
 }

@@ -1,7 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(image/backgroundimage.avif);
+  background-position: center;
+  background-size: cover;
+}
+
 .container {
   width: 225px;
   height: 415px;
-  margin: auto;
   border-radius: 20px;
   background-color: #576579;
 }
@@ -51,6 +66,7 @@
   background-color: #576579;
   cursor: default;
   text-align: right;
+  text-overflow: hidden;
 }
 
 #button{
@@ -62,4 +78,13 @@
   background-color: pink;
   margin: 10px 10px 0px 0px;
   cursor: pointer;
+}
+
+/* to change theme */
+.changeContainer{
+  width: 225px;
+  height: 415px;
+  border-radius: 20px;
+  background-color: pink;
+
 }
